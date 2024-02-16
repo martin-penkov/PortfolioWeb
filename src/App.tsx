@@ -9,6 +9,8 @@ import { Notifications } from '@/components/Notifications/Notifications';
 
 import { AppRoutes } from '@/routes';
 import { Provider } from 'react-redux';
+import { Background } from './components/Background/Background';
+import { DeviceFrame } from './components/Background/DeviceFrame';
 
 function App() {
   return (
@@ -26,13 +28,15 @@ const AppProvider = ({ children }: AppProviderProps) => {
         <div className="flex items-center justify-center w-screen h-screen">
           <Spinner size="xl" />
         </div>
-      }
-    >
+      }>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
           <QueryClientProvider client={queryClient}>
-            <Notifications />
+            <Background />
+              <Notifications />
             {/* <AuthProvider> */}
+            <DeviceFrame>
               <Router>{children}</Router>
+            </DeviceFrame>
             {/* </AuthProvider> */}
           </QueryClientProvider>
       </ErrorBoundary>
