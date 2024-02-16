@@ -1,10 +1,9 @@
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { useNotificationStore, dismissNotification } from "../../stores/notifications";
-
+import { useDispatch, useSelector } from "react-redux";
 import { Notification } from './Notification';
 
 export const Notifications = () => {
-  const notifications = useSelector(state => state.notifications);
+  const notifications = useSelector((state) => state.notifications);
+  const dispatch = useDispatch()
 
   return (
     <div
@@ -15,7 +14,7 @@ export const Notifications = () => {
         <Notification
           key={notification.id}
           notification={notification}
-          onDismiss={dismissNotification}
+          onDismiss={(id: string) => dispatch({ type: 'DISMISS_NOTIFICATION', payload: {id} })}
         />
       ))}
     </div>

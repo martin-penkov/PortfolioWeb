@@ -28,7 +28,7 @@ export const defaultRoutes = [
       path: '/',
       element: <App />,
       children: [
-        { path: '/dashboard', element: <Dashboard /> },
+        { path: '/projects', element: <Dashboard /> },
         { path: '*', element: <Navigate to="." /> },
       ],
     },

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Button } from '@/components/Elements/Button';
 import { Dialog, DialogTitle } from '@/components/Elements/Dialog';
-import { useDisclosure } from '@/hooks/useDisclosure';
+import { useDisclosure } from '@/app/useDisclosure';
 
 export type ConfirmationDialogProps = {
   triggerButton: React.ReactElement;

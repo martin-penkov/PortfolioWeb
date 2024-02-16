@@ -4,12 +4,14 @@ import {
   HomeIcon,
   Bars2Icon,
   XMarkIcon,
+  CodeBracketIcon
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import * as React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import logo from '@/assets/logo.svg';
+import { useDispatch } from 'react-redux';
 
 type SideNavigationItem = {
   name: string;
@@ -19,8 +21,10 @@ type SideNavigationItem = {
 
 const SideNavigation = () => {
   const navigation = [
-    { name: 'Dashboard', to: '.', icon: HomeIcon },
+    { name: 'Home', to: '.', icon: HomeIcon },
+    { name: 'Projects', to: './projects', icon: CodeBracketIcon }
   ].filter(Boolean) as SideNavigationItem[];
+  const dispatch = useDispatch()
 
   return (
     <>
@@ -33,6 +37,13 @@ const SideNavigation = () => {
             'text-gray-300 hover:bg-gray-700 hover:text-white',
             'group flex items-center px-2 py-2 text-base font-medium rounded-md'
           )}
+          onClick={() => {   //testing the notification system
+            dispatch({type: "ADD_NOTIFICATION", payload: {
+              type: 'success',
+              title: 'RABOTIII!!',
+              message: 'Neshto random :)'
+            }})
+          }}
         >
           <item.icon
             className={clsx(

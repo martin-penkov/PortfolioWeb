@@ -5,9 +5,10 @@ import { QueryClientProvider } from 'react-query';
 import { queryClient } from '@/query/react-query';
 
 import { Spinner, ErrorFallback } from '@/components/Elements';
-// import { Notifications } from '@/components/Notifications/Notifications';
+import { Notifications } from '@/components/Notifications/Notifications';
 
 import { AppRoutes } from '@/routes';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
     >
       <ErrorBoundary FallbackComponent={ErrorFallback}>
           <QueryClientProvider client={queryClient}>
-            {/* <Notifications /> */}
+            <Notifications />
             {/* <AuthProvider> */}
               <Router>{children}</Router>
             {/* </AuthProvider> */}
