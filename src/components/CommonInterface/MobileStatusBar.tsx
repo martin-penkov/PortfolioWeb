@@ -4,9 +4,9 @@ import { Clock } from "../Misc/Clock"
 export const MobileStatusBar = () => {
     
     return (
-        <div>
+        <div className="xl:hidden">
             {/* camera punchhole */}
-            <div className="xl:hidden absolute top-2 inset-x-0">
+            <div className="absolute top-2 inset-x-0">
                 <div className="mx-auto bg-black h-10 w-10 rounded-3xl"></div>
             </div>
             {/* clock, wifi, connectivity */}

@@ -10,7 +10,7 @@ export const MobileNavBar = () => {
     }
 
     return (
-        <div className="lg:hidden absolute bottom-0 inset-x-0">
+        <div className="xl:hidden absolute bottom-0 inset-x-0">
             <div className="flex mx-auto h-11 w-full bg-black bg-opacity-80">
                 <button className="h-full mx-auto w-10 text-white opacity-60 place-items-center" onClick={() => returnHome()}>
                     <StopIcon />
