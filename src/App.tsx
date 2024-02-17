@@ -34,9 +34,11 @@ const AppProvider = ({ children }: AppProviderProps) => {
             <Background />
               <Notifications />
             {/* <AuthProvider> */}
-            <DeviceFrame>
-              <Router>{children}</Router>
-            </DeviceFrame>
+            <div className='grid min-h-screen place-items-center'>
+              <DeviceFrame>
+                <Router>{children}</Router>
+              </DeviceFrame>
+            </div>
             {/* </AuthProvider> */}
           </QueryClientProvider>
       </ErrorBoundary>

@@ -6,7 +6,7 @@ type DeviceLayoutProps = {
 
 export const DeviceFrame = ({ children }: DeviceLayoutProps) => {
     return (
-        <div className="z-0 flex max-h-screen max-w-screen overflow-hidden p-24 h-[85vh]">
+        <div className="mx-auto h-[90%] lg:h-[80%] sm:h-[85%] w-[85%] bg-white rounded-[60px] xl:rounded-[5px] border-[14px] border-black relative overflow-hidden ring ring-grey-400 shadow-xl">
             <Interface>
                 {children}
             </Interface>
