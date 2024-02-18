@@ -11,6 +11,7 @@ import * as React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import { HomeScreen } from '../HomeScreen/HomeScreen';
 
 type SideNavigationItem = {
   name: string;
@@ -58,27 +59,25 @@ const SideNavigation = () => {
   );
 };
 
-type UserNavigationItem = {
-  name: string;
-  to: string;
-  onClick?: () => void;
-};
-
-type MobileSidebarProps = {
-  sidebarOpen: boolean;
-  setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
 
 type MainLayoutProps = {
   children: React.ReactNode;
 };
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
-  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+  const [currentApp, openApp] = React.useState(null);
+
+
+  if(!currentApp){
+    return (
+      <div className="h-full w-full">
+        <HomeScreen openApp={openApp} />
+      </div>
+  )}
 
   return (
-      <div className="h-full w-full bg-red-950">
-        {/* <main className="flex-1 relative overflow-y-auto focus:outline-none">{children}</main> */}
+      <div className="h-full w-full">
+        {currentApp}
       </div>
   );
 };

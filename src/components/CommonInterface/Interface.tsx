@@ -12,7 +12,7 @@ export const Interface = ({children}: InterfaceProps) => {
         <div>
             <img className="absolute inset-0 h-full w-full object-cover" src={DEVICE_WALLPAPER} />
             <MobileStatusBar />
-            <main className="flex-1 relative overflow-y-auto focus:outline-none">{children}</main>
+            <main className="w-full h-full absolute overflow-y-auto">{children}</main>
             <DesktopStatusBar />
             <MobileNavBar />
         </div>

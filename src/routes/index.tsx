@@ -1,15 +1,27 @@
-import { useRoutes } from 'react-router-dom';
-
-import { Landing } from '@/features/misc';
-import { defaultRoutes } from './defaultRoutes';
+import { Outlet, Route, Routes } from 'react-router-dom';
+import { MainLayout } from '@/components/Layout';
+import { Suspense } from 'react';
+import { Spinner } from '@/components/Elements';
+import { AboutMe } from '@/components/Apps/AboutMe';
 
 export const AppRoutes = () => {
 
-  const commonRoutes = [{ path: '/', element: <Landing /> }];
-
-  const routes = defaultRoutes;
-
-  const element = useRoutes([...routes, ...commonRoutes]);
-
-  return <>{element}</>;
+  return (
+    <Routes>
+      <Route path="/" element={
+        <MainLayout>
+          <Suspense
+          fallback={
+            <div className="h-full w-full flex items-center justify-center">
+              <Spinner size="xl" />
+            </div>
+          }
+        >
+          <Outlet />
+        </Suspense>
+        </MainLayout>
+      } />
+      <Route path='projects' element={<AboutMe />} />
+    </Routes>
+  )
 };
