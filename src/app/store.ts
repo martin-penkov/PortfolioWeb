@@ -1,8 +1,13 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { notificationReducer } from './reducers/notificationReducer';
+import { configureStore } from '@reduxjs/toolkit'
+import notificationReducer from './features/notifications/notificationSlice';
+import windowsReducer from './features/windows/windowSlice'
 
-const reducers = combineReducers({
-    notifications: notificationReducer
+export const store = configureStore({
+    reducer: {
+        notificationsState: notificationReducer,
+        windows: windowsReducer
+    }
 })
 
-export const store = () => configureStore({reducer: reducers})
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

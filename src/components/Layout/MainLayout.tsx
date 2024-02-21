@@ -12,6 +12,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { HomeScreen } from '../HomeScreen/HomeScreen';
+import { useAppDispatch } from '@/app/hooks';
 
 type SideNavigationItem = {
   name: string;
@@ -66,7 +67,6 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   const [currentApp, openApp] = React.useState(null);
-
 
   if(!currentApp){
     return (

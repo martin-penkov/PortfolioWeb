@@ -8,6 +8,14 @@ type HomeScreenProps = {
 
 export const HomeScreen = ({ openApp }: HomeScreenProps) => {
 
+    // const dispatch = useAppDispatch()
+
+    // dispatch(addNotification({
+    //     type: 'success',
+    //     title: 'RABOTIII!!',
+    //     message: 'Neshto random :)'
+    // }));
+
     return (
         <div className="container relative flex flex-wrap w-full h-full gap-5 place-items-center">
             <AppIcon iconPath={userIcon} title="Projects" appRef={<AboutMe/>} openApp={openApp} />
