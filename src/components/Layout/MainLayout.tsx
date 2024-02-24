@@ -12,7 +12,9 @@ import { NavLink, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { HomeScreen } from '../HomeScreen/HomeScreen';
-import { useAppDispatch } from '@/app/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { AboutMe } from '../Apps/AboutMe';
+import { Apps } from '@/app/consts/Apps';
 
 type SideNavigationItem = {
   name: string;
@@ -65,19 +67,25 @@ type MainLayoutProps = {
   children: React.ReactNode;
 };
 
+const AppComponents: { [key in Apps]: JSX.Element } = {
+  [Apps.None]: <></>,
+  [Apps.AboutMe]: <AboutMe />,
+  [Apps.Projects]: <AboutMe />
+};
+
 export const MainLayout = ({ children }: MainLayoutProps) => {
-  const [currentApp, openApp] = React.useState(null);
+  const currentApp = useAppSelector((state) => state.windows.currentWindow);
 
   if(!currentApp){
     return (
       <div className="h-full w-full">
-        <HomeScreen openApp={openApp} />
+        <HomeScreen />
       </div>
   )}
 
   return (
       <div className="h-full w-full">
-        {currentApp}
+        {AppComponents[currentApp]}
       </div>
   );
 };

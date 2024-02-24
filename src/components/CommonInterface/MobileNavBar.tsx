@@ -1,7 +1,12 @@
+import { closeWindow } from "@/app/features/windows/windowSlice";
+import { useAppDispatch } from "@/app/hooks";
 import { StopIcon, ArrowUturnLeftIcon } from "@heroicons/react/24/outline"
 
 export const MobileNavBar = () => {
+    const dispatch = useAppDispatch()
+
     const returnHome = () => {
+        dispatch(closeWindow());
         console.log("Home button clicked");
     }
 

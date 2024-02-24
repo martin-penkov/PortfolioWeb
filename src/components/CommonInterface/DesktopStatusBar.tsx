@@ -1,8 +1,13 @@
 import { HomeIcon, WifiIcon, SpeakerWaveIcon, SunIcon } from "@heroicons/react/24/outline"
 import { Clock } from "../Misc/Clock"
+import { useAppDispatch } from "@/app/hooks"
+import { closeWindow } from "@/app/features/windows/windowSlice"
 
 export const DesktopStatusBar = () => {
+    const dispatch = useAppDispatch()
+
     const returnHome = () => {
+        dispatch(closeWindow());
         console.log("Desktop Home clicked");
     }
 
